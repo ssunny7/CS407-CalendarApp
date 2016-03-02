@@ -16,4 +16,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <ImageButton
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@android:drawable/ic_input_add"
+        android:tint="@android:color/white"
+        android:background="@drawable/addbtn_rounded"
+        android:id="@+id/btnAddEvent"
+        android:elevation="1dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>
