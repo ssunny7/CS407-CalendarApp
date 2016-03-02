@@ -1,5 +1,6 @@
 package com.ssunny.cs407.calendar;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.CalendarView;
@@ -17,7 +18,8 @@ public class DayPicker extends AppCompatActivity {
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                
+                Intent eventsListActivity = new Intent(getApplicationContext(), EventsList.class);
+                startActivity(eventsListActivity);
             }
         });
     }
