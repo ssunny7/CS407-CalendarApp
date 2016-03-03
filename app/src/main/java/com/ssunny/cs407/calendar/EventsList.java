@@ -1,15 +1,11 @@
 package com.ssunny.cs407.calendar;
 
-import android.graphics.Outline;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewOutlineProvider;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import java.util.ArrayList;
