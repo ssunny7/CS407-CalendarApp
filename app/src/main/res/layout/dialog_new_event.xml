@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:text="@string/newevent_title_label"
+        android:textStyle="bold"
+        android:padding="7dp"
+        android:gravity="center"
+        android:textSize="26dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/newEvtTitle"
+        android:layout_weight="2"
+        android:padding="7dp"/>
+    <TimePicker
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/newEvtTime"
+        android:layout_gravity="center">
+    </TimePicker>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:id="@+id/newEvtAdd"
+        android:padding="5dp"
+        android:text="@string/newevent_ok"/>
+
+</LinearLayout>

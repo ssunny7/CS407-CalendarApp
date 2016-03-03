@@ -19,6 +19,13 @@ public class DayPicker extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 Intent eventsListActivity = new Intent(getApplicationContext(), EventsList.class);
+
+                Bundle bundle = new Bundle();
+                bundle.putInt("YEAR", year);
+                bundle.putInt("MONTH", month);
+                bundle.putInt("DOM", dayOfMonth);
+                eventsListActivity.putExtras(bundle);
+
                 startActivity(eventsListActivity);
             }
         });

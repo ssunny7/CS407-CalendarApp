@@ -6,18 +6,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 
 /**
  * Created by ssunny7 on 3/1/2016.
  */
-public class EventsListAdapter extends RecyclerView.Adapter<EventsListAdapter.ViewHolder> {
+public class EventsListAdapter extends RecyclerView.Adapter<EventsListAdapter.ViewHolder> implements Comparator<EventDetails> {
 
-    private EventDetails[] events = null;
+    private ArrayList<EventDetails> events = null;
 
-    public EventsListAdapter(EventDetails[] _events) {
+    public EventsListAdapter(ArrayList<EventDetails> _events) {
         events = _events;
     }
 
@@ -33,18 +35,19 @@ public class EventsListAdapter extends RecyclerView.Adapter<EventsListAdapter.Vi
     @Override
     public void onBindViewHolder(ViewHolder vh, int position) {
 
-        EventDetails curEvent = events[position];
+        EventDetails curEvent = events.get(position);
 
         TextView evtDetailsTitle = (TextView)vh.detailsView.findViewById(R.id.evtDetailsTitle);
         evtDetailsTitle.setText(curEvent.getTitle());
 
         TextView evtDetailsDate = (TextView)vh.detailsView.findViewById(R.id.evtDetailsDate);
-        evtDetailsDate.setText(curEvent.getDate().toString());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm a");
+        evtDetailsDate.setText(sdf.format(curEvent.getDate()).toString());
     }
 
     @Override
     public int getItemCount() {
-        return events == null?0:events.length;
+        return events == null?0:events.size();
     }
 
     @Override
@@ -54,6 +57,18 @@ public class EventsListAdapter extends RecyclerView.Adapter<EventsListAdapter.Vi
 
         ViewHolder vh = new ViewHolder(v);
         return vh;
+    }
+
+    public void addEvent(EventDetails event) {
+        if(events != null) {
+            events.add(event);
+            Collections.sort(events, this);
+        }
+    }
+
+    @Override
+    public int compare(EventDetails first, EventDetails second) {
+        return first.getDate().compareTo(second.getDate());
     }
 }
 
