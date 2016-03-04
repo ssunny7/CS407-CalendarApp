@@ -20,6 +20,7 @@ public class EventsList extends AppCompatActivity implements NewEventDialog.NewE
     private RecyclerView.LayoutManager rvLayoutManager;
     private ImageButton addEvent;
     private TextView emptyView;
+    private EventsDbHelper dbHelper;
 
     private int year, month, dom;
 
@@ -46,6 +47,7 @@ public class EventsList extends AppCompatActivity implements NewEventDialog.NewE
 
         recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
         emptyView = (TextView)findViewById(R.id.emptyTextView);
+        dbHelper = new EventsDbHelper(getApplicationContext());
 
         ArrayList<EventDetails> events = new ArrayList<EventDetails>();
         if(events == null || events.size() == 0) {
