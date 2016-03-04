@@ -7,6 +7,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -16,6 +19,7 @@ public class EventsList extends AppCompatActivity implements NewEventDialog.NewE
     private EventsListAdapter rvAdapter;
     private RecyclerView.LayoutManager rvLayoutManager;
     private ImageButton addEvent;
+    private TextView emptyView;
 
     private int year, month, dom;
 
@@ -41,8 +45,15 @@ public class EventsList extends AppCompatActivity implements NewEventDialog.NewE
         });
 
         recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
+        emptyView = (TextView)findViewById(R.id.emptyTextView);
 
-        rvAdapter = new EventsListAdapter(new ArrayList<EventDetails>());
+        ArrayList<EventDetails> events = new ArrayList<EventDetails>();
+        if(events == null || events.size() == 0) {
+            recyclerView.setVisibility(View.GONE);
+            emptyView.setVisibility(View.VISIBLE);
+        }
+
+        rvAdapter = new EventsListAdapter(events);
         recyclerView.setAdapter(rvAdapter);
 
         rvLayoutManager = new LinearLayoutManager(this);
@@ -53,6 +64,9 @@ public class EventsList extends AppCompatActivity implements NewEventDialog.NewE
         if(eventDetails != null) {
             rvAdapter.addEvent(eventDetails);
             rvAdapter.notifyDataSetChanged();
+
+            recyclerView.setVisibility(View.VISIBLE);
+            emptyView.setVisibility(View.GONE);
         }
     }
 }
