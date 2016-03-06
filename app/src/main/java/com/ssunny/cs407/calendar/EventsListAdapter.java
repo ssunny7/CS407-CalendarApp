@@ -21,7 +21,9 @@ public class EventsListAdapter extends RecyclerView.Adapter<EventsListAdapter.Vi
     private ArrayList<EventDetails> events = null;
 
     public EventsListAdapter(ArrayList<EventDetails> _events) {
-        events = _events;
+        events = new ArrayList<EventDetails>();
+        for(EventDetails event : _events)
+            events.add(event);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -76,6 +78,10 @@ public class EventsListAdapter extends RecyclerView.Adapter<EventsListAdapter.Vi
         return events == null?0:events.size();
     }
 
+    public ArrayList<EventDetails> getCurrentEvents() {
+        return events;
+    }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
@@ -88,7 +94,8 @@ public class EventsListAdapter extends RecyclerView.Adapter<EventsListAdapter.Vi
     public void addEvent(EventDetails event) {
         if(events != null) {
             events.add(event);
-            Collections.sort(events, this);
+            if(events.size() > 1)
+                Collections.sort(events, this);
         }
     }
 

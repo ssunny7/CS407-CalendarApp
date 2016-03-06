@@ -10,12 +10,11 @@ public class EventsDbContract {
 
     public static final String EVENTSTABLE_CREATE = "CREATE TABLE " + EventsTable.TABLE_NAME + "(" +
                                                     EventsTable._ID + " INTEGER PRiMARY KEY," +
-                                                    EventsTable.COLUMN_YEAR + " INTEGER " +
-                                                    EventsTable.COLUMN_MONTH + " INTEGER " +
-                                                    EventsTable.COLUMN_DOM + " INTEGER " +
-                                                    EventsTable.COLUMN_TITLE + " INTEGER " +
-                                                    EventsTable.COLUMN_HOUR + " INTEGER " +
-                                                    EventsTable.COLUMN_YEAR + " INTEGER " +
+                                                    EventsTable.COLUMN_YEAR + " INTEGER, " +
+                                                    EventsTable.COLUMN_MONTH + " INTEGER, " +
+                                                    EventsTable.COLUMN_DOM + " INTEGER, " +
+                                                    EventsTable.COLUMN_TITLE + " TEXT, " +
+                                                    EventsTable.COLUMN_HOUR + " INTEGER, " +
                                                     EventsTable.COLUMN_MINUTE + " INTEGER " + " )";
 
     public static final String EVENTSTABLE_DELETE = "DROP TABLE IF EXISTS " + EventsTable.TABLE_NAME;

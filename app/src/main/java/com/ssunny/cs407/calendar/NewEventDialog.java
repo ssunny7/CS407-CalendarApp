@@ -41,9 +41,10 @@ public class NewEventDialog extends DialogFragment {
         newEvtTitle = (EditText)dialogView.findViewById(R.id.newEvtTitle);
         newEvtTitle.setText("New Event");
 
+        Calendar now = Calendar.getInstance();
         newEvtTime = (TimePicker)dialogView.findViewById(R.id.newEvtTime);
-        newEvtTime.setCurrentHour(Calendar.HOUR);
-        newEvtTime.setCurrentMinute(Calendar.MINUTE);
+        newEvtTime.setCurrentHour(now.get(Calendar.HOUR));
+        newEvtTime.setCurrentMinute(now.get(Calendar.MINUTE));
 
         Button addButton = (Button)dialogView.findViewById(R.id.newEvtAdd);
         addButton.setOnClickListener(new View.OnClickListener() {
