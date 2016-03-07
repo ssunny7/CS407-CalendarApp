@@ -24,6 +24,8 @@ public class EventsListAdapter extends RecyclerView.Adapter<EventsListAdapter.Vi
         events = new ArrayList<EventDetails>();
         for(EventDetails event : _events)
             events.add(event);
+
+        Collections.sort(events, this);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
