@@ -1,2 +1,8 @@
 # CS407-CalendarApp
-Assignment 2 of CS407
+
+Name: Sunny Shah
+
+E-Mail: shah28@wisc.edu
+
+Link to YouTube video: https://www.youtube.com/watch?v=c5_CpoiBYVs
+
